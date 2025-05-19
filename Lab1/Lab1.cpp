@@ -1,22 +1,29 @@
 #include <allegro5/allegro.h>
-#include <allegro5/allegro_font.h>
-#include <allegro5/allegro_ttf.h>
+#include <stdio.h>
 
-int main()
-{
-	al_init();
-	al_init_font_addon();
-	al_init_ttf_addon();
+#define black al_map_rgb(0,0,0)
+#define white al_map_rgb(255,255,255)
 
-	ALLEGRO_DISPLAY* display = al_create_display(680, 480);
-	ALLEGRO_FONT* font = al_load_ttf_font("BagelFatOne-Regular.TTF", 64, 0);
+int main(int argc, char** argv) {
+	ALLEGRO_DISPLAY* display = NULL;
 
-	while (true) {
-		al_clear_to_color(al_map_rgb(255, 255, 255));
-		al_draw_text(font, al_map_rgb(0, 0, 0), 0, 0, 0, "Hello World");
-		al_flip_display();
+	if (!al_init()) {
+		fprintf(stderr, "failed to initialize allegro.\n");
+		return -1;
 	}
 
+	display = al_create_display(640, 480);
+	if (!display) {
+		fprintf(stderr, "failed to create display. \n");
+	}
+
+	al_clear_to_color(black);
+
+	al_flip_display();
+
+	al_rest(10.0);
+
 	al_destroy_display(display);
-	al_destroy_font(font);
+
+	return 0;
 }
