@@ -39,6 +39,12 @@ int main(int argc, char** argv) {
 	al_draw_rectangle(90.0, 80.0, 230.0, 85.0, brown, 2); // draws first eyebrow
 	al_draw_rectangle(410.0, 80.0, 550.0, 85.0, brown, 2); // draws second eyebrow
 
+	al_draw_filled_triangle(320.0, 140.0, 250.0, 240.0, 380.0, 240.0, peach); // draw nose
+
+	// filled circle for pupils
+
+	// white line for mouth
+
 	al_flip_display();
 	al_rest(10.0); // keeps image on screen for 30 secs
 
