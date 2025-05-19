@@ -5,7 +5,7 @@
 
 #define black al_map_rgb(0,0,0)			// Macros for common colors
 #define white al_map_rgb(255,255,255)
-#define height 640
+#define height 640						// macros to make changing h/w easy
 #define width 480
 
 int main(int argc, char** argv) {
@@ -45,9 +45,29 @@ int main(int argc, char** argv) {
 		ALLEGRO_EVENT ev;
 		al_wait_for_event(eq, &ev);
 
-		
+		if (ev.type == ALLEGRO_EVENT_KEY_UP) {
+			switch (ev.keyboard.keycode) {
+				case ALLEGRO_KEY_SPACE:
+					clear = true;
+					break;
+				case ALLEGRO_KEY_ESCAPE:
+					done = true;
+					break;
+			}
+		}
+		else if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+			done = true;
+		}
+
+		al_flip_display();
+
+		if (clear) {
+			al_clear_to_color(black);
+			clear = false;
+		}
 	}
 
+	al_destroy_event_queue(eq);		// memory cleanup
 	al_destroy_display(display);	// memory cleanup
 
 	return 0;
