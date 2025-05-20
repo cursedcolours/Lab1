@@ -47,7 +47,7 @@ int main(int argc, char** argv) {
 	al_draw_line(155, 300, 485, 300, white, 3); // white line for mouth
 
 	al_flip_display(); // sends drawings to display
-	al_rest(10.0); // keeps image on screen for 30 secs
+	al_rest(30.0); // keeps image on screen for 30 secs
 
 	al_destroy_display(display);	// memory cleanup
 
