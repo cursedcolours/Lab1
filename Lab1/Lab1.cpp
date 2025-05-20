@@ -41,7 +41,8 @@ int main(int argc, char** argv) {
 
 	al_draw_filled_triangle(320.0, 140.0, 250.0, 240.0, 380.0, 240.0, peach); // draw nose
 
-	// filled circle for pupils
+	al_draw_filled_circle(160, 120, 30, blue); // draws first iris
+	al_draw_filled_circle(480, 120, 30, blue); // draws second iris
 
 	// white line for mouth
 
