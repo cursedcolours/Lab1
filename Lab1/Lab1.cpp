@@ -44,9 +44,9 @@ int main(int argc, char** argv) {
 	al_draw_filled_circle(160, 120, 30, blue); // draws first iris
 	al_draw_filled_circle(480, 120, 30, blue); // draws second iris
 
-	// white line for mouth
+	al_draw_line(155, 300, 485, 300, white, 3); // white line for mouth
 
-	al_flip_display();
+	al_flip_display(); // sends drawings to display
 	al_rest(10.0); // keeps image on screen for 30 secs
 
 	al_destroy_display(display);	// memory cleanup
